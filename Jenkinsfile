@@ -25,5 +25,16 @@ pipeline {
                 archiveArtifacts artifacts: "*.txt", followSymlinks: false 
             }
         }
+
+        stage('Build') {
+            steps {
+               // Here compiling the welcome java file
+               sh '''
+                   #!/bin/bash
+                   git clone https://github.com/kavithadevops1986/DevOps_Java_App.git build
+                   java "${WORKSPACE}"/build/welcomeFile
+               '''
+            }
+        }
     }
 }
