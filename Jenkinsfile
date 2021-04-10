@@ -32,7 +32,8 @@ pipeline {
                sh '''
                    #!/bin/bash
                    if [ find * | grep build ]
-                   rm -rf build
+                      rm -rf build
+                   fi
                    git clone https://github.com/kavithadevops1986/DevOps_Java_App.git build
                    cd build
                    java welcomeFile
