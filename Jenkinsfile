@@ -32,7 +32,8 @@ pipeline {
                sh '''
                    #!/bin/bash
                    git clone https://github.com/kavithadevops1986/DevOps_Java_App.git build
-                   java "${WORKSPACE}"/build/welcomeFile
+                   cd build
+                   java welcomeFile
                '''
             }
         }
