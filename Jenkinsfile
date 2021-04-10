@@ -31,6 +31,8 @@ pipeline {
                // Here compiling the welcome java file
                sh '''
                    #!/bin/bash
+                   if [ find * | grep build ]
+                   rm -rf build
                    git clone https://github.com/kavithadevops1986/DevOps_Java_App.git build
                    cd build
                    java welcomeFile
