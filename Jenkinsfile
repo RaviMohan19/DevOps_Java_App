@@ -64,7 +64,7 @@ pipeline {
             )
         }
 
-        abort {
+        aborted {
             echo "${JOB_NAME} is successful"      
             emailext (to: 'ravim.bogg@gmail.com', subject: subject, body: "${JOB_NAME}_${BUILD_NUMBER}",recipientProviders: [[$class: 'DevelopersRecipientProvider']]
             )
