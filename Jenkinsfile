@@ -55,16 +55,19 @@ pipeline {
         failure {
             echo "${JOB_NAME} is successful"
             emailext (to: 'ravim.bogg@gmail.com', subject: subject, body: "${JOB_NAME}_${BUILD_NUMBER}",recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+            )
         }
 
         unstable {
             echo "${JOB_NAME} is unstable"
             emailext (to: 'ravim.bogg@gmail.com', subject: subject, body: "${JOB_NAME}_${BUILD_NUMBER}",recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+            )
         }
 
         abort {
             echo "${JOB_NAME} is successful"      
             emailext (to: 'ravim.bogg@gmail.com', subject: subject, body: "${JOB_NAME}_${BUILD_NUMBER}",recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+            )
         }   
     }
 }
