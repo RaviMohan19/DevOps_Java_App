@@ -11,7 +11,7 @@ pipeline {
                 sh '''
                    #!/bin/bash
                    printenv
-                   echo "This is a sample text file" > sample.txt
+                   echo "Sample Text File Modified" > sample.txt
                 '''
             }
         }
