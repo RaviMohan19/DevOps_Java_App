@@ -5,13 +5,18 @@ pipeline {
         }
     }
     
+    parameters {
+       string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?'name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    }
+    
     stages {
         stage('Environment variables') {
             steps {
                 sh '''
                    #!/bin/bash
                    printenv
-                   echo "Sample Text File Modified" > sample.txt
+                   echo "Sample Text File Modified" > sample.txti
+                   echo "${params.PERSON}"
                 '''
             }
         }
