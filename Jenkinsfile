@@ -15,12 +15,13 @@ pipeline {
                 sh '''
                    #!/bin/bash
                    printenv
-                   echo "Sample Text File Modified" > sample.txti
+                   echo "Sample Text File Modified" > sample.txt
+                   '''
                    echo "${params.PERSON}"
-                '''
             }
         }
-        
+       
+ 
         stage('Push Artifacts') {
             steps {
                 sh '''
