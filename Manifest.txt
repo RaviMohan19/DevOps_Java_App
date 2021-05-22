@@ -1,1 +1,3 @@
-Main-Class: helloWorld.class
+Manifest-Version: 1.0
+Class-Path: .
+Main-Class: helloWorld
