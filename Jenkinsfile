@@ -11,10 +11,17 @@ pipeline {
                 script {
                     sh '''
                         #!/bin/bash
+                        if [ -d "${WORKSPACE}/build" ]
+                        then
+                            echo "Build Directory Exists"
+                            rm -rf build
+                        else 
+                            echo "Directory not found, Deleting not necessary"
+                        fi 
                         git clone https://github.com/kavithadevops1986/DevOps_Java_App.git build
                         cd ${WORKSPACE}/build
                         ls -la
-                        jar cvfm helloWorld.war *
+                        jar cvf helloWorld.war *
                     '''
                 }
             }
@@ -32,6 +39,9 @@ pipeline {
         } //Deploy       
     } // stages
     post {
+        always {
+            cleanWs()
+        }
         failure {
             echo "${JOB_NAME} Pipeline failed" 
         }
